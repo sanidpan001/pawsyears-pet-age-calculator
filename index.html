@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawsYears — Dog & Cat Age Calculator: Pet Age in Human Years</title>
+<meta name="description" content="Free pet age calculator. Convert your dog or cat's age into human years using the modern non-linear method — by breed size for dogs — with life-stage and care guidance.">
+<link rel="canonical" href="https://pawsyears.fixoraa.tech/">
+<meta property="og:title" content="PawsYears — Dog & Cat Age Calculator: Pet Age in Human Years">
+<meta property="og:description" content="Free pet age calculator. Convert your dog or cat's age into human years using the modern non-linear method — by breed size for dogs — with life-stage and care guidance.">
+<meta property="og:url" content="https://pawsyears.fixoraa.tech/">
+<meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--pri:#D97706;--acc:#059669;--bgc:#FFFBEB}
+body{background:var(--bgc);font-family:'Segoe UI',system-ui,sans-serif}
+.pri{background:var(--pri)} .prit{color:var(--pri)} .acct{color:var(--acc)}
+.btn{background:var(--pri);color:#fff;padding:.6rem 1.2rem;border-radius:.6rem;font-weight:600;cursor:pointer;border:none}
+.btn:hover{opacity:.9} .btn2{background:var(--acc);color:#111;padding:.6rem 1.2rem;border-radius:.6rem;font-weight:600;cursor:pointer;border:none}
+input,select,textarea{border:1.5px solid #cbd5e1;border-radius:.55rem;padding:.55rem .7rem;width:100%;background:#fff;color:#0f172a}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--pri);border-color:transparent}
+label{font-size:.83rem;font-weight:600;display:block;margin-bottom:.3rem}
+.card{background:#fff;border-radius:1rem;box-shadow:0 8px 30px rgba(15,23,42,.08);padding:1.4rem}
+article p{margin:.7rem 0;line-height:1.75;color:#334155}
+article h2{font-size:1.45rem;font-weight:800;margin:1.6rem 0 .4rem;color:#0f172a}
+.faq{background:#fff;border-radius:.7rem;padding:.9rem 1.1rem;margin:.55rem 0;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+.faq summary{font-weight:700;cursor:pointer}
+table.dt{width:100%;border-collapse:collapse} table.dt th,table.dt td{border:1px solid #e2e8f0;padding:.45rem .6rem;text-align:left;font-size:.9rem}
+table.dt th{background:#f1f5f9}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PawsYears", "url": "https://pawsyears.fixoraa.tech/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Free pet age calculator. Convert your dog or cat's age into human years using the modern non-linear method \u2014 by breed size for dogs \u2014 with life-stage and care guidance."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is the 'multiply by seven' rule wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Dogs and cats mature far faster early in life: year one \u2248 15 human years, year two adds \u2248 9, and only then does a steady rate apply. A flat \u00d77 understates youth and misstates old age in both species."}}, {"@type": "Question", "name": "How do you calculate a dog's age in human years?", "acceptedAnswer": {"@type": "Answer", "text": "15 for the first year, +9 for the second, then roughly +4 (small), +5 (medium) or +6 (large) per year, reflecting how size changes ageing speed in dogs. PawsYears applies this modern veterinary curve."}}, {"@type": "Question", "name": "Do cats age differently from dogs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 cats follow 15, then +9, then +4 per year, with no size adjustment. Cats age more slowly than medium dogs in later life: at 15, a cat is \u224876 human years versus \u224889 for a medium dog."}}, {"@type": "Question", "name": "When is my pet a senior?", "acceptedAnswer": {"@type": "Answer", "text": "Cats: around 11+ years (mature from 7). Dogs: earlier for large breeds \u2014 a large dog can be senior by 8, while a small dog may not reach senior stage until 11+. The calculator labels the stage and its care priorities."}}, {"@type": "Question", "name": "Does breed matter beyond size?", "acceptedAnswer": {"@type": "Answer", "text": "Breed and individual health shift animals years either side of any curve \u2014 the calculator uses size, the strongest general predictor for dogs. Your vet's assessment of your actual animal always outranks a general chart."}}, {"@type": "Question", "name": "Why compare two pets' ages?", "acceptedAnswer": {"@type": "Answer", "text": "Households run on an age ladder: knowing which pet is effectively eldest helps plan exercise, feeding and vet schedules fairly \u2014 a senior should not be exercised like a youngster just because they share a home."}}]}</script>
+</head>
+<body id="top">
+<header class="sticky top-0 z-40 shadow-md" style="background:#451A03">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="#top" class="text-xl font-extrabold tracking-tight" style="color:#FFFBEB">🐾 PawsYears</a>
+    <nav class="flex gap-5 text-sm font-semibold" style="color:#FFFBEB">
+      <a href="#top" class="hover:underline">Home</a>
+      <a href="https://fixoraa.tech" class="hover:underline">More Tools</a>
+    </nav>
+  </div>
+</header>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pt-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <div class="origin-top scale-[0.44] sm:scale-100 shrink-0">
+        <script>
+          atOptions = { 'key' : '4e68ac77881c17fe128a46565d9a4e8c', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<main class="mx-auto max-w-6xl px-4 sm:px-6 py-8">
+  <div class="text-center mb-6">
+    <h1 class="text-3xl sm:text-4xl font-extrabold" style="color:#0f172a">Pet Age to Human Years Calculator</h1>
+    <p class="mt-2 text-slate-600 max-w-2xl mx-auto">The old 'multiply by seven' rule is wrong — the first year of a dog's life is worth about fifteen of ours. PawsYears uses the modern curve, adjusted for your dog's size, and tells you the life stage and what it means for their care.</p>
+    <span class="inline-block mt-3 px-3 py-1 rounded-full text-xs font-bold text-white pri">✓ Unlimited Free Usage — No Signup, No Watermark</span>
+  </div>
+  <div class="card max-w-3xl mx-auto">
+  <div class="grid md:grid-cols-4 gap-3">
+    <div><label>Pet</label><select id="sp"><option value="dog">🐶 Dog</option><option value="cat">🐱 Cat</option></select></div>
+    <div><label>Age (years)</label><input id="age" type="number" step="0.5" min="0" value="3"></div>
+    <div><label>Dog size</label><select id="size"><option value="small">Small (&lt;10 kg)</option><option value="medium" selected>Medium (10–25 kg)</option><option value="large">Large (&gt;25 kg)</option></select></div>
+    <div><label>Second pet's age (compare, optional)</label><input id="age2" type="number" step="0.5" min="0" placeholder="—"></div>
+  </div>
+  <button class="btn w-full mt-4" onclick="calc()">Convert Pet Age</button>
+  <div class="text-center my-4"><div id="res" class="text-3xl font-extrabold prit"></div><div id="stage" class="text-lg font-semibold mt-1"></div><div id="care" class="text-slate-600 mt-1"></div><div id="cmp" class="font-semibold mt-2"></div></div>
+  <table class="dt"><tr><th>Pet age</th><th>Dog (medium)</th><th>Cat</th></tr><tr><td>1</td><td>15</td><td>15</td></tr><tr><td>2</td><td>24</td><td>24</td></tr><tr><td>5</td><td>39</td><td>36</td></tr><tr><td>7</td><td>49</td><td>44</td></tr><tr><td>10</td><td>64</td><td>56</td></tr><tr><td>15</td><td>89</td><td>76</td></tr></table>
+ </div>
+</main>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pb-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="464498"></script>
+    </div>
+  </div>
+</div>
+<section class="mx-auto max-w-4xl px-4 sm:px-6 pb-6">
+  <article>
+  <h2>The seven-year rule is wrong, and always was</h2>
+<p>Multiply by seven is the most durable wrong number in pet care. It survives because it is simple, not because it describes any animal that ever lived. A one-year-old dog is not a seven-year-old child — she can reproduce, works a job in some breeds, and has the judgement of a teenager. She is, by veterinary consensus, roughly a fifteen-year-old human. Her second year adds about nine more, reaching a human-equivalent 24, and only then does the curve settle into the familiar slope of roughly five human years per dog year — adjusted, importantly, by size. PawsYears implements that modern curve, because the flat rule misleads everything from feeding to insurance to how seriously you take a grey muzzle.</p>
+<p>Cats follow their own version: fifteen human years for the first, nine for the second, then a steady four per year — no size adjustment, since domestic cats vary far less than dogs. The reference table under the calculator shows both curves side by side; the divergence at age fifteen — a medium dog near 89, a cat near 76 — is the accumulated signature of their different biologies.</p>
+<h2>Why size changes a dog's clock</h2>
+<p>Among the strangest facts in mammalian biology: within dogs, bigger bodies age faster. A Great Dane is senior at seven while a Chihuahua is barely middle-aged, and giant breeds' lifespans can be half those of the smallest. Researchers link the pattern to the growth demands placed on large puppies and the oxidative cost of building a big body fast. PawsYears therefore asks for size and steepens the post-two curve accordingly — about four human years annually for small dogs, five for medium, six for large — a simplification of veterinary charts, but a faithful one.</p>
+<p>The practical consequence lands in the care notes: a large dog's 'mature' stage arrives while owners still think of him as young, and senior screening — joints, heart, lumps, kidneys — should begin years earlier than the family expects. Knowing your dog's human-equivalent age is not a parlour conversion; it is the trigger for when check-ups should double in frequency and when the ramps and joint-friendly routines stop being premature.</p>
+<h2>Life stages, and what each one asks of you</h2>
+<p>Puppyhood and kittenhood are socialisation windows with deadlines: the experiences an animal files as 'normal' in its first months shape its confidence for life, and the window closes whether you used it or not. The young-adult stage spends that confidence at full throttle — training, exercise and weight discipline laid down here echo for a decade. Adulthood is maintenance: vaccinations, dentals, steady weight, routine checks. Maturity is the hinge — subtle slowing that owners rationalise as 'good behaviour' is often comfort changing, and it deserves a vet's eyes, not just gratitude for a calmer house.</p>
+<p>Senior stage is where equivalent-age thinking pays its deepest dividend. A cat at a human-equivalent 76 has earned twice-yearly vet visits, bloodwork baselines, litter-box access that does not require stairs, and a family that interprets withdrawal as information. The calculator labels the stage plainly because love expresses itself differently at each one — stimulation for the young, vigilance for the old.</p>
+<h2>Comparing pets, and the household hierarchy</h2>
+<p>Multi-pet households run on an invisible age ladder that the comparison field makes visible. A three-year-old cat and a three-year-old medium dog share a birth year and almost nothing else — she is 28 to his 29 in human terms, peers indeed; but add a nine-year-old large dog (≈66) and the household contains a pensioner whose slower pace, earlier nights and vet schedule deserve planning around. Owners who see the ladder stop expecting the senior to match the youngster's walks and start designing the two-speed household both animals need.</p>
+<p>It also settles gentler questions with grace: who is 'older', the ten-year-old cat or the seven-year-old dog? (The cat, 56 to 49 — and she has probably always known it.) Use the comparisons for care planning first and trivia second, and they will serve both purposes for years.</p>
+<h2>What human years cannot tell you</h2>
+<p>Equivalent age is a communication device, not a diagnosis. Breed, genetics, weight, dental health and sheer luck move individual animals years off their curve in both directions — the overweight Labrador ages faster than his chart; the lean, lucky moggy slower. No calculator sees your animal. What the number does is calibrate your attention: it translates 'he is nine' into 'he is about sixty-one' and lets your instincts for a sixty-one-year-old — patience, check-ups, comfort — engage on his behalf.</p>
+<p>Recheck the conversion as birthdays pass, adjust the care stage by stage, and let the arithmetic do its one job: reminding you, in your own units, how much of their shorter, denser timeline each of your years together represents. They spend their whole lives in the span of your decades. Knowing the exchange rate makes the spending kinder.</p>
+<h2>A note for the humans doing the math</h2>
+<p>People compute a pet's human age most often at two moments: delight, when a puppy arrives, and dread, when a muzzle greys. Both moments deserve the accurate curve rather than the folk rule, because both are really about stewardship — how much guidance a young animal needs from you, and how much gentleness an old one has earned. Run the number, read the stage, and act one stage more carefully than you were. That is the entire prescription PawsYears writes.</p>
+<h2>Birthdays, gotcha-days and the 15th-year gift</h2>
+<p>Shelters celebrate 'gotcha days' for animals whose birth dates are unknown — and the calculator serves them equally well from an estimated age: enter the vet's best guess and every future milestone is as real as a pedigree puppy's. However the date is chosen, marking the human-equivalent milestones gives families a second calendar of pet celebrations: the cat's '30th' (her sixth year, roughly), the dog's '50th' in his eighth — occasions spaced through a life that otherwise offers only annual birthdays bunched at the same season.</p>
+<p>For the senior milestones, the celebration that matters most is procedural: the twice-yearly vet visit booked, the bloodwork baseline taken, the house quietly adapted — a step at the bed, a rug on the slick floor. Love, at the far end of the curve, looks like logistics performed early. Compute the stage, then perform it.</p>
+<h2>Recording the count for the animals you love</h2>
+<p>Write your pet's human-equivalent age on the inside cover of their vet record or a notes app the day you first compute it, with the date — because the question recurs at every stage transition and every 'is he old for a…?' conversation, and the answer is only useful if it is current. Recompute on each birthday; the five seconds it takes converts a vague sense of time passing into a stage, a checklist and, when needed, a prompt for the vet visit that should have been booked anyway. Records kept kindly are a form of care that outlasts memory, and animals, who keep no records of their own, depend entirely on ours.</p>
+<h2>For the pets whose ages are guesses</h2>
+<p>Rescue animals arrive with estimated ages, and owners sometimes treat the estimate as a defect in the record. It is not: every age in this calculator is a model anyway, and a vet's estimate refined by teeth, eyes and history is a perfectly sound input. Mark the milestones from the estimate without apology, celebrate the gotcha-day anniversaries with full honours, and update the estimate if a later vet visit refines it — the celebrations already held lose nothing. What an animal knows is not its birth date but its care, and care, unlike chronology, is entirely yours to perfect.</p>
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq"><summary>Why is the 'multiply by seven' rule wrong?</summary><p>Dogs and cats mature far faster early in life: year one ≈ 15 human years, year two adds ≈ 9, and only then does a steady rate apply. A flat ×7 understates youth and misstates old age in both species.</p></details>
+<details class="faq"><summary>How do you calculate a dog's age in human years?</summary><p>15 for the first year, +9 for the second, then roughly +4 (small), +5 (medium) or +6 (large) per year, reflecting how size changes ageing speed in dogs. PawsYears applies this modern veterinary curve.</p></details>
+<details class="faq"><summary>Do cats age differently from dogs?</summary><p>Yes — cats follow 15, then +9, then +4 per year, with no size adjustment. Cats age more slowly than medium dogs in later life: at 15, a cat is ≈76 human years versus ≈89 for a medium dog.</p></details>
+<details class="faq"><summary>When is my pet a senior?</summary><p>Cats: around 11+ years (mature from 7). Dogs: earlier for large breeds — a large dog can be senior by 8, while a small dog may not reach senior stage until 11+. The calculator labels the stage and its care priorities.</p></details>
+<details class="faq"><summary>Does breed matter beyond size?</summary><p>Breed and individual health shift animals years either side of any curve — the calculator uses size, the strongest general predictor for dogs. Your vet's assessment of your actual animal always outranks a general chart.</p></details>
+<details class="faq"><summary>Why compare two pets' ages?</summary><p>Households run on an age ladder: knowing which pet is effectively eldest helps plan exercise, feeding and vet schedules fairly — a senior should not be exercised like a youngster just because they share a home.</p></details>
+  </article>
+</section>
+<footer class="mt-6 py-8" style="background:#451A03;color:#FFFBEB">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center text-sm">
+    <p class="font-bold text-base">PawsYears</p>
+    <p class="opacity-80 mt-1">Free pet age calculator. Convert your dog or cat's age into human years using the modern non-linear method — by breed size for dogs — with life-stage and care guidance.</p>
+    <p class="mt-2"><a href="#top" class="underline">Home</a> · <a href="https://fixoraa.tech" class="underline">More Tools</a></p>
+    <p class="fx-credit" style="text-align:center;font-size:12.5px;opacity:.62;margin:10px auto 2px;letter-spacing:.01em">Made by <a href="https://fixoraa.tech" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px">Fixoraa</a></p>
+  </div>
+</footer>
+<script id="lib-pawsyears">
+
+function petHumanYears(species, ageYears, size){
+  if (ageYears<=0) return 0;
+  if (species==='cat'){ if(ageYears<=1) return Math.round(ageYears*15); if(ageYears<=2) return Math.round(15+(ageYears-1)*9); return Math.round(24+(ageYears-2)*4); }
+  // dog: first year 15, second +9, then per-year by size
+  var per = size==='small'?4 : size==='large'?6 : 5;
+  if (ageYears<=1) return Math.round(ageYears*15);
+  if (ageYears<=2) return Math.round(15+(ageYears-1)*9);
+  return Math.round(24+(ageYears-2)*per);
+}
+function lifeStage(species, ageYears){
+  if (species==='cat'){ if(ageYears<1)return 'Kitten'; if(ageYears<7)return 'Adult'; if(ageYears<11)return 'Mature'; return 'Senior'; }
+  if(ageYears<1)return 'Puppy'; if(ageYears<2)return 'Young adult'; if(ageYears<8)return 'Adult'; if(ageYears<11)return 'Mature'; return 'Senior';
+}
+if (typeof module!=="undefined") module.exports={petHumanYears:petHumanYears, lifeStage:lifeStage};
+
+</script>
+<script>
+
+var CARE={'Puppy':'Socialisation window — gentle training, vaccinations and lots of safe new experiences.','Kitten':'Socialisation window — handling, play, litter habits and first vaccinations.','Young adult':'Energy peaks — training, exercise and weight watching matter most now.','Adult':'Prime years — routine vet checks, dental care and steady exercise.','Mature':'Watch joints, weight and early senior signs; six-monthly vet checks are wise.','Senior':'Senior care — ramps, softer bedding, senior diet, pain checks and twice-yearly vet visits.'};
+function calc(){
+  var sp=document.getElementById('sp').value, age=+document.getElementById('age').value, size=document.getElementById('size').value;
+  var hy=petHumanYears(sp,age,size), st=lifeStage(sp,age);
+  document.getElementById('res').textContent='≈ '+hy+' human years';
+  document.getElementById('stage').textContent='Life stage: '+st;
+  document.getElementById('care').textContent=CARE[st]||'';
+  var a2=+document.getElementById('age2').value;
+  document.getElementById('cmp').textContent= a2>0 ? ('Second pet: ≈ '+petHumanYears(sp,a2,size)+' human years ('+lifeStage(sp,a2)+'). '+(a2>age?'Your second pet is the elder of the household.':a2<age?'Your first pet is the elder of the household.':'Same pet age — peers in life stage.')) : '';
+}
+calc();
+
+</script>
+</body>
+</html>
